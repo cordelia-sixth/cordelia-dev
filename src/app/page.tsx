@@ -1,10 +1,11 @@
-import Link from "next/link";
+import { About } from "@/components/about";
+import { Avatar } from "@/components/avatar";
 
 export default function Home() {
   return (
     <>
-      <h1>ここはトップページです</h1>
-      <Link href="/blog">記事一覧へ</Link>
+      <Avatar id="myicon" alt="サイト制作者のアイコン" />
+      <About />
     </>
   );
 }

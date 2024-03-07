@@ -13,6 +13,13 @@ export type Blog = {
   id: string;
   title: string;
   contents: string;
+  tags: [
+    {
+      id: string;
+      name: string;
+      slug: string;
+    },
+  ];
   eyecatch?: MicroCMSImage;
 } & MicroCMSDate;
 
@@ -61,7 +68,7 @@ export const getDetail = async (
     queries,
   });
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return detailData;
 };
