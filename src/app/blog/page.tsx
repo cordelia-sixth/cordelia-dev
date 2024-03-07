@@ -1,5 +1,6 @@
 import { Blog, client, getBlog } from "@/lib/microcms";
 import Link from "next/link";
+import { PostCardUi } from "./[postId]/_components/PostCardUi";
 
 export default async function Page() {
   const { contents } = await getBlog();
@@ -8,17 +9,9 @@ export default async function Page() {
 
   return (
     <>
-      <ul>
-        {contents.map((item) => {
-          return (
-            <article key={item.id}>
-              <h2 className="text-xl">
-                <Link href={`/blog/${item.id}`}>{item.title}</Link>
-              </h2>
-            </article>
-          );
-        })}
-      </ul>
+      {contents.map((item) => {
+        return <PostCardUi key={item.id} {...item} />;
+      })}
     </>
   );
 }

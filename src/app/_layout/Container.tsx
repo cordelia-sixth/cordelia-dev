@@ -5,5 +5,5 @@ import { type ReactNode } from "react";
  * @returns main
  */
 export const Container = ({ children }: { children: ReactNode }) => {
-  return <main className="h-screen">{children}</main>;
+  return <main className="grid grid-cols-1 gap-6">{children}</main>;
 };

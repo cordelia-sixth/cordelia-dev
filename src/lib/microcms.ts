@@ -21,6 +21,7 @@ export type Blog = {
     },
   ];
   eyecatch?: MicroCMSImage;
+  publishedAt: string;
 } & MicroCMSDate;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
