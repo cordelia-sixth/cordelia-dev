@@ -45,7 +45,9 @@ export default async function Page({ params }: Props) {
     postBody(elm).addClass("rounded-lg bg-slate-800 p-1");
   });
   postBody("h2").each((_, elm) => {
-    postBody(elm).addClass("text-xl font-bold sm:text-2xl");
+    postBody(elm).addClass(
+      "text-xl font-bold sm:text-2xl border-b pb-2 pt-10 border-slate-800",
+    );
   });
 
   post.contents = postBody.html();
@@ -53,10 +55,12 @@ export default async function Page({ params }: Props) {
   // TODO: 諸々表示を加工する
   return (
     <>
-      <HTag level={1} className="w-full">
-        {post.title}
-      </HTag>
-      <div className="flex w-full flex-col items-start gap-2">
+      <div className="w-full text-center">
+        <HTag level={1} className="inline-block text-left">
+          {post.title}
+        </HTag>
+      </div>
+      <div className="flex w-full flex-col items-start gap-1">
         <time className="pl-[3px] text-white/[.6]">
           {parseFixedDate(post.publishedAt)}
         </time>
@@ -73,7 +77,7 @@ export default async function Page({ params }: Props) {
           })}
         </div>
       </div>
-      <div className="grid w-full grid-cols-1 gap-2 border-t border-slate-800 pt-8">
+      <div className="flex w-full flex-col gap-4 border-t border-slate-800 pt-12">
         {HTMLReactParser(post.contents)}
       </div>
     </>
