@@ -1,3 +1,5 @@
+import { HTag } from "@/components/ui/HTag";
+
 export default function Loading() {
-  return <h1>Loading...</h1>;
+  return <HTag level={1}>Loading...</HTag>;
 }

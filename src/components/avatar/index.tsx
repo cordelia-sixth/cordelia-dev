@@ -5,20 +5,25 @@ type Props = {
   id: string;
   /** 画像のaltテキスト */
   alt: string;
+  /** 画像の横幅 */
+  width?: number;
+  /** 画像の縦幅 */
+  height?: number;
 };
 
 /**
  * アバターを表示する
- * @param param0
+ * @param id 画像ID
+ * @param alt 代替テキスト
  */
-export const Avatar = ({ id, alt }: Props) => {
+export const Avatar = ({ id, alt, width = 160, height = 160 }: Props) => {
   return (
     <Image
       src={`/${id}.png`}
       alt={alt}
-      width="200"
-      height="200"
-      className="rounded-full"
+      width={width}
+      height={height}
+      className="mx-auto rounded-full"
     />
   );
 };

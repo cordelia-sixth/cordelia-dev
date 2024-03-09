@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
-    <footer className="">
-      <small>&copy; 2023 cordelia.dev</small>
+    <footer className="text-center sm:text-base">
+      &copy; 2024 cordelia.dev
     </footer>
   );
 };

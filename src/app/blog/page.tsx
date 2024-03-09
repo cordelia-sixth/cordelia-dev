@@ -1,11 +1,12 @@
 import { Blog, client, getBlog } from "@/lib/microcms";
-import Link from "next/link";
 import { PostCardUi } from "./[postId]/_components/PostCardUi";
+import { HTag } from "@/components/ui/HTag";
 
 export default async function Page() {
   const { contents } = await getBlog();
 
-  if (!contents || contents.length === 0) return <h1>No contents.</h1>;
+  if (!contents || contents.length === 0)
+    return <HTag level={1}>No contents.</HTag>;
 
   return (
     <>

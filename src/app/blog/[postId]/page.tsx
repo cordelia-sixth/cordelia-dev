@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { load } from "cheerio";
 import hljs from "highlight.js";
 import "highlight.js/styles/github-dark.css";
+import { HTag } from "@/components/ui/HTag";
+import { parseFixedDate } from "@/utils/timeParser";
 
 export async function generateStaticParams() {
   const { contents } = await getBlog();
@@ -43,27 +45,34 @@ export default async function Page({ params }: Props) {
     postBody(elm).addClass("rounded-lg bg-slate-800 p-1");
   });
   postBody("h2").each((_, elm) => {
-    postBody(elm).addClass("font-bold max-sm:text-lg sm:text-2xl");
+    postBody(elm).addClass("text-xl font-bold sm:text-2xl");
   });
 
   post.contents = postBody.html();
 
-  // TODO: 日時修正関数を作成
-  const parseDate = (date: Date) => {
-    const target = new Date(date);
-  };
-
   // TODO: 諸々表示を加工する
   return (
     <>
-      <h1 className="pb-6 font-bold max-sm:text-xl sm:text-3xl">
+      <HTag level={1} className="w-full">
         {post.title}
-      </h1>
-      <p>Published{post.publishedAt}</p>
-      <p>Written cordelia</p>
-      {post.tags.map((tag) => {
-        return <p key={tag.id}>{tag.name}</p>;
-      })}
+      </HTag>
+      <div className="flex w-full flex-col items-start gap-2">
+        <time className="pl-[3px] text-white/[.6]">
+          {parseFixedDate(post.publishedAt)}
+        </time>
+        <div className="flex gap-2">
+          {post.tags.map((tag) => {
+            return (
+              <small
+                key={tag.id}
+                className="self-end rounded-3xl border border-white px-2"
+              >
+                {tag.name}
+              </small>
+            );
+          })}
+        </div>
+      </div>
       <div className="grid grid-cols-1 gap-2 border-t border-slate-800 pt-8">
         {HTMLReactParser(post.contents)}
       </div>

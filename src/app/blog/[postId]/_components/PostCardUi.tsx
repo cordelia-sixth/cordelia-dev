@@ -1,4 +1,6 @@
+import { HTag } from "@/components/ui/HTag";
 import { Blog } from "@/lib/microcms";
+import { parseFixedDate } from "@/utils/timeParser";
 import Link from "next/link";
 
 /**
@@ -12,13 +14,13 @@ import Link from "next/link";
 export const PostCardUi = ({ id, title, publishedAt, tags }: Blog) => {
   return (
     <Link
-      className="grid h-48 grid-cols-1 gap-2 rounded-lg bg-slate-800 p-3"
+      className="grid h-48 w-full grid-cols-1 gap-2 rounded-lg bg-slate-800 p-3"
       href={`/blog/${id}`}
     >
       <div className="flex flex-col gap-2">
-        <h2 className="font-bold max-sm:text-lg sm:text-2xl">{title}</h2>
+        <HTag level={2}>{title}</HTag>
         <p className="">
-          <time>{publishedAt}</time>
+          <time>{parseFixedDate(publishedAt)}</time>
         </p>
       </div>
       <div className="flex flex-wrap gap-2">
