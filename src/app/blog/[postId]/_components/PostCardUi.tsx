@@ -9,12 +9,11 @@ import Link from "next/link";
  * @param title 記事タイトル
  * @param publishedAt 投稿日時
  * @param tags タグ
- * @returns article
  */
 export const PostCardUi = ({ id, title, publishedAt, tags }: Blog) => {
   return (
     <Link
-      className="grid h-48 w-full grid-cols-1 gap-2 rounded-lg bg-slate-800 p-3"
+      className="flex min-h-60 w-full flex-col justify-between gap-8 rounded-lg bg-slate-800 p-3"
       href={`/blog/${id}`}
     >
       <div className="flex flex-col gap-2">
@@ -27,7 +26,7 @@ export const PostCardUi = ({ id, title, publishedAt, tags }: Blog) => {
         {tags.map((tag) => {
           return (
             <small
-              className="self-end rounded-3xl border border-white px-2"
+              className="rounded-3xl border border-white px-2"
               key={tag.id}
             >
               {tag.name}

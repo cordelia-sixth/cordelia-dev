@@ -9,10 +9,10 @@ export default async function Page() {
     return <HTag level={1}>No contents.</HTag>;
 
   return (
-    <>
+    <div className="flex flex-col gap-6 min-[426px]:grid min-[426px]:grid-cols-2">
       {contents.map((item) => {
         return <PostCardUi key={item.id} {...item} />;
       })}
-    </>
+    </div>
   );
 }
