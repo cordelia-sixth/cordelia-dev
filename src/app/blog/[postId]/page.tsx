@@ -60,7 +60,7 @@ export default async function Page({ params }: Props) {
           {post.title}
         </HTag>
       </div>
-      <div className="flex w-full flex-col items-start gap-1">
+      <div className="flex w-full flex-col items-start gap-1 pb-3 pt-10">
         <time className="pl-[3px] text-white/[.6]">
           {parseFixedDate(post.publishedAt)}
         </time>
