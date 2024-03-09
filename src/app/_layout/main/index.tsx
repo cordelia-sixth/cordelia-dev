@@ -5,5 +5,5 @@ import { type ReactNode } from "react";
  * @returns main
  */
 export const Main = ({ children }: { children: ReactNode }) => {
-  return <main className="grid place-items-center gap-4 py-8">{children}</main>;
+  return <main className="flex flex-1 flex-col gap-4 py-8">{children}</main>;
 };

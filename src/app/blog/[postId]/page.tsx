@@ -73,7 +73,7 @@ export default async function Page({ params }: Props) {
           })}
         </div>
       </div>
-      <div className="grid grid-cols-1 gap-2 border-t border-slate-800 pt-8">
+      <div className="grid w-full grid-cols-1 gap-2 border-t border-slate-800 pt-8">
         {HTMLReactParser(post.contents)}
       </div>
     </>
