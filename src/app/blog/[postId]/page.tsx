@@ -1,5 +1,5 @@
 import { getBlog, getDetail } from "@/lib/microcms";
-import HTMLReactParser from "html-react-parser/lib/index";
+import parse from "html-react-parser";
 import { notFound } from "next/navigation";
 import { load } from "cheerio";
 import hljs from "highlight.js";
@@ -35,22 +35,29 @@ export default async function Page({ params }: Props) {
   if (!post) notFound();
 
   // TODO: もっとコード量を少なくできそう
-  const postBody = load(post.contents, null, false);
-  postBody("pre").each((_, elm) => {
-    const parsed = hljs.highlightAuto(postBody(elm).text());
-    postBody(elm).html(parsed.value);
-    postBody(elm).addClass("rounded-lg bg-slate-800 overflow-x-auto p-4");
+  const $ = load(post.contents, null, false);
+  $("pre code").each((_, element) => {
+    const result = hljs.highlightAuto($(element).text(), [
+      "javascript",
+      "typescript",
+      "css",
+      "html",
+      "bash",
+    ]);
+    $(element).html(result.value);
+    $(element).addClass("hljs");
   });
-  postBody("code").each((_, elm) => {
-    postBody(elm).addClass("rounded-lg bg-slate-800 p-1");
+  $("pre").each((_, element) => {
+    $(element).addClass("rounded-lg bg-slate-800 overflow-x-auto");
   });
-  postBody("h2").each((_, elm) => {
-    postBody(elm).addClass(
-      "text-xl font-bold sm:text-2xl border-b pb-2 pt-10 border-slate-800",
+  $("code").each((_, elm) => {
+    $(elm).addClass("rounded-lg bg-slate-800 p-1");
+  });
+  $("h2").each((_, elm) => {
+    $(elm).addClass(
+      "text-xl font-bold sm:text-2xl border-b pb-2 border-slate-800",
     );
   });
-
-  post.contents = postBody.html();
 
   // TODO: 諸々表示を加工する
   return (
@@ -60,7 +67,7 @@ export default async function Page({ params }: Props) {
           {post.title}
         </HTag>
       </div>
-      <div className="flex w-full flex-col items-start gap-1 pb-3 pt-10">
+      <div className="flex w-full flex-col items-start gap-1 pb-2 pt-10">
         <time className="pl-[3px] text-white/[.6]">
           {parseFixedDate(post.publishedAt)}
         </time>
@@ -77,8 +84,8 @@ export default async function Page({ params }: Props) {
           })}
         </div>
       </div>
-      <div className="flex w-full flex-col gap-4 border-t border-slate-800 pt-12">
-        {HTMLReactParser(post.contents)}
+      <div className="flex w-full flex-col gap-6 border-t border-slate-800 pt-6">
+        {parse($.html())}
       </div>
     </>
   );
