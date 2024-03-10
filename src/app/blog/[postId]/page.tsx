@@ -9,7 +9,6 @@ import { parseFixedDate } from "@/utils/timeParser";
 
 export async function generateStaticParams() {
   const { contents } = await getBlog();
-
   const paths = contents.map((post) => {
     return {
       postId: post.id,

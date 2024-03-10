@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   /** 画像ID */
@@ -9,6 +10,8 @@ type Props = {
   width?: number;
   /** 画像の縦幅 */
   height?: number;
+  /** スタイル */
+  className?: string;
 };
 
 /**
@@ -16,14 +19,20 @@ type Props = {
  * @param id 画像ID
  * @param alt 代替テキスト
  */
-export const Avatar = ({ id, alt, width = 160, height = 160 }: Props) => {
+export const Avatar = ({
+  id,
+  alt,
+  width = 160,
+  height = 160,
+  className,
+}: Props) => {
   return (
     <Image
       src={`/${id}.png`}
       alt={alt}
       width={width}
       height={height}
-      className="mx-auto rounded-full"
+      className={`${twMerge("mx-auto rounded-full", className)}`}
     />
   );
 };
