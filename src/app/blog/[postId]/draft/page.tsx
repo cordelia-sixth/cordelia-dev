@@ -1,5 +1,5 @@
 import NotFound from "@/app/not-found";
-import { generateArticleMetadata, getBlogDraft } from "@/lib/microcms";
+import { getBlogDraft } from "@/lib/microcms";
 import { notFound, redirect } from "next/navigation";
 import { PostBody } from "../_components/PostBody";
 import Link from "next/link";

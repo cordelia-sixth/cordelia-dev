@@ -23,7 +23,7 @@ export const PostBody = async ({ post, body }: Props) => {
       </div>
       <div className="flex w-full flex-col items-start gap-1 pb-2 pt-10">
         <time className="pl-[3px] text-white/[.6]">
-          {parseFixedDate(post.publishedAt)}
+          {parseFixedDate(post.publishDate)}
         </time>
         <div className="flex gap-2">
           {post.tags.map((tag) => {
