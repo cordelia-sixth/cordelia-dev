@@ -7,10 +7,10 @@ import Link from "next/link";
  * 記事一覧ページに表示するコンポーネント
  * @param id 記事ID
  * @param title 記事タイトル
- * @param publishedAt 投稿日時
+ * @param publishDate 投稿日時
  * @param tags タグ
  */
-export const PostCardUi = ({ id, title, publishedAt, tags }: Blog) => {
+export const PostCardUi = ({ id, title, publishDate, tags }: Blog) => {
   return (
     <Link
       className="flex min-h-60 w-full flex-col justify-between gap-8 rounded-lg bg-slate-800 p-3"
@@ -19,7 +19,7 @@ export const PostCardUi = ({ id, title, publishedAt, tags }: Blog) => {
       <div className="flex flex-col gap-2">
         <HTag level={2}>{title}</HTag>
         <p className="">
-          <time>{parseFixedDate(publishedAt)}</time>
+          <time>{parseFixedDate(publishDate)}</time>
         </p>
       </div>
       <div className="flex flex-wrap gap-2">

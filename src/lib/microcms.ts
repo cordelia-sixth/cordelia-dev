@@ -13,6 +13,8 @@ export type Blog = {
   id: string;
   /** 記事タイトル */
   title: string;
+  /** 投稿日 */
+  publishDate: string;
   /** 記事本文 */
   contents: string;
   /** 記事タグ */
@@ -28,8 +30,6 @@ export type Blog = {
   ];
   /** 記事アイキャッチ画像 */
   eyecatch?: MicroCMSImage;
-  /** 登校日 */
-  publishedAt: string;
 } & MicroCMSDate;
 
 const endpoint = "blogs";
