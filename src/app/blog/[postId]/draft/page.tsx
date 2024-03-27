@@ -1,6 +1,6 @@
 import { getBlogDraft } from "@/lib/microcms";
 import { notFound, redirect } from "next/navigation";
-import { PostBody } from "../_components/PostBody";
+import { PostBody } from "../_components/ArticleBody";
 import Link from "next/link";
 
 type Props = {

@@ -1,20 +1,19 @@
-import { getBlog, getDetail } from "@/lib/microcms";
-import { notFound } from "next/navigation";
-import "highlight.js/styles/github-dark.css";
-import { PostBody } from "./_components/PostBody";
+import { getAtricleList, getDetail } from "@/lib/microcms";
+import { ArticleBody } from "./_components/ArticleBody";
 import { parseHtml } from "../utils/parseHtml";
+import "highlight.js/styles/github-dark.css";
 
-export const revalidate = 600;
+export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const { contents } = await getBlog();
-  const paths = contents.map((post) => {
+  const { contents: articleList } = await getAtricleList();
+  const paths = articleList.map((article) => {
     return {
-      postId: post.id,
+      postId: article.id,
     };
   });
 
-  return [...paths];
+  return paths;
 }
 
 type Props = {
@@ -25,18 +24,11 @@ type Props = {
 };
 
 /**
- * 個別記事ページ
+ * 記事ページ
  */
 export default async function Page({ params }: Props) {
-  const { postId } = params;
-  const post = await getDetail(postId);
-  if (!post) notFound();
-
+  const post = await getDetail(params.postId);
   const body = parseHtml(post);
 
-  return (
-    <>
-      <PostBody post={post} body={body}></PostBody>
-    </>
-  );
+  return <ArticleBody post={post} body={body}></ArticleBody>;
 }

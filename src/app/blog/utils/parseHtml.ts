@@ -1,4 +1,4 @@
-import { type Blog } from "@/lib/microcms";
+import { type Article } from "@/lib/microcms";
 import { load } from "cheerio";
 import hljs from "highlight.js";
 import "highlight.js/styles/github-dark.css";
@@ -8,7 +8,7 @@ import parse from "html-react-parser";
  * HTMLを加工して返す
  * @param post 記事のHTML
  */
-export const parseHtml = (post: Blog) => {
+export const parseHtml = (post: Article) => {
   // TODO: もっとコード量を少なくできそう
   const $ = load(post.contents, null, false);
   $("pre code").each((_, element) => {

@@ -1,10 +1,10 @@
 import { HTag } from "@/components/ui/HTag";
-import { Blog } from "@/lib/microcms";
+import { Article } from "@/lib/microcms";
 import { parseFixedDate } from "@/utils/timeParser";
 import { ReactNode } from "react";
 
 type Props = {
-  post: Blog;
+  post: Article;
   body: ReactNode;
 };
 
@@ -13,7 +13,7 @@ type Props = {
  * @param post 記事データ
  * @param body パース済みの記事本文
  * */
-export const PostBody = async ({ post, body }: Props) => {
+export const ArticleBody = async ({ post, body }: Props) => {
   return (
     <>
       <div className="w-full text-center">

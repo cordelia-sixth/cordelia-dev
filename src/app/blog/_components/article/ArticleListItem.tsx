@@ -1,29 +1,29 @@
 import { HTag } from "@/components/ui/HTag";
-import { Blog } from "@/lib/microcms";
+import { Article } from "@/lib/microcms";
 import { parseFixedDate } from "@/utils/timeParser";
 import Link from "next/link";
 
+type Props = {
+  article: Article;
+};
+
 /**
- * 記事一覧ページに表示するコンポーネント
- * @param id 記事ID
- * @param title 記事タイトル
- * @param publishDate 投稿日時
- * @param tags タグ
+ * 記事一覧ページに記事アイテム
  */
-export const PostCardUi = ({ id, title, publishDate, tags }: Blog) => {
+export const ArticleListItem = ({ article }: Props) => {
   return (
     <Link
       className="flex min-h-60 w-full flex-col justify-between gap-8 rounded-lg bg-slate-800 p-3"
-      href={`/blog/${id}`}
+      href={`/blog/${article.id}`}
     >
       <div className="flex flex-col gap-2">
-        <HTag level={2}>{title}</HTag>
+        <HTag level={2}>{article.title}</HTag>
         <p className="">
-          <time>{parseFixedDate(publishDate)}</time>
+          <time>{parseFixedDate(article.publishDate)}</time>
         </p>
       </div>
       <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => {
+        {article.tags.map((tag) => {
           return (
             <small
               className="rounded-3xl border border-white px-2"
