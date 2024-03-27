@@ -1,4 +1,4 @@
-import { getAtricleList, getDetail } from "@/lib/microcms";
+import { getArticleList, getDetail } from "@/lib/microcms";
 import { ArticleBody } from "./_components/ArticleBody";
 import { parseHtml } from "../utils/parseHtml";
 import "highlight.js/styles/github-dark.css";
@@ -6,7 +6,7 @@ import "highlight.js/styles/github-dark.css";
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const { contents: articleList } = await getAtricleList();
+  const { contents: articleList } = await getArticleList();
   const paths = articleList.map((article) => {
     return {
       postId: article.id,

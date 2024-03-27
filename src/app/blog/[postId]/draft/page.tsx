@@ -1,7 +1,8 @@
 import { getBlogDraft } from "@/lib/microcms";
 import { notFound, redirect } from "next/navigation";
-import { PostBody } from "../_components/ArticleBody";
+
 import Link from "next/link";
+import { ArticleBody } from "../_components/ArticleBody";
 
 type Props = {
   params: { postId: string };
@@ -26,7 +27,7 @@ const Page = async ({
 
   return (
     <main>
-      <PostBody post={post} body />
+      <ArticleBody post={post} body />
       {draftKey && (
         <Link href={`/blog`} className="border border-white p-2">
           プレビュー終了

@@ -1,24 +1,18 @@
-import { getAtricleList } from "@/lib/microcms";
+import { ArticleList } from "../blog/_components/article/ArticleList";
 
 type Props = {
   searchParams: {
-    q?: string;
+    q: string;
   };
 };
 
-/**
- * 記事タイトル検索コンポーネント
- */
-const Page = async ({ searchParams }: Props) => {
-  const data = await getAtricleList({
-    q: searchParams.q,
-  });
+// export const revalidate = 60;
 
-  return (
-    <>
-      <h1>Search</h1>
-    </>
-  );
+/**
+ * 記事検索結果を表示するページ
+ */
+const Page = ({ searchParams }: Props) => {
+  return <ArticleList query={searchParams.q} />;
 };
 
 export default Page;

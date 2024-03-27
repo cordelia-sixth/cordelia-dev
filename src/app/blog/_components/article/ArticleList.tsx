@@ -1,12 +1,18 @@
-import { getAtricleList } from "@/lib/microcms";
+import { getArticleList } from "@/lib/microcms";
 import { HTag } from "@/components/ui/HTag";
 import { ArticleListItem } from "./ArticleListItem";
+
+type Props = {
+  query?: string;
+};
 
 /**
  * 記事一覧を表示するコンポーネント
  */
-export const ArticleList = async () => {
-  const { contents: articleList } = await getAtricleList();
+export const ArticleList = async ({ query = "" }: Props) => {
+  const { contents: articleList } = await getArticleList({
+    q: query,
+  });
 
   if (!articleList) return null;
   if (articleList.length === 0)

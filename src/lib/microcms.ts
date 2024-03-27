@@ -52,7 +52,7 @@ export const client = createClient({
  * ブログ一覧を取得
  * @param queries 検索用クエリ
  */
-export const getAtricleList = async (
+export const getArticleList = async (
   queries?: MicroCMSQueries,
 ): Promise<MicroCMSListResponse<Article>> => {
   return await client.getList<Article>({
