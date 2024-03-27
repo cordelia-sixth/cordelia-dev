@@ -5,5 +5,5 @@ import { type ReactNode } from "react";
  * @returns main
  */
 export const Main = ({ children }: { children: ReactNode }) => {
-  return <main className="">{children}</main>;
+  return <main className="flex h-full flex-1 flex-col gap-6">{children}</main>;
 };

@@ -1,9 +1,11 @@
 import { HTag } from "@/components/ui/HTag";
+import { Tag } from "@/components/ui/Tag";
 import { Article } from "@/lib/microcms";
 import { parseFixedDate } from "@/utils/timeParser";
 import Link from "next/link";
 
 type Props = {
+  /** 記事データ */
   article: Article;
 };
 
@@ -13,25 +15,16 @@ type Props = {
 export const ArticleListItem = ({ article }: Props) => {
   return (
     <Link
-      className="flex min-h-60 w-full flex-col justify-between gap-8 rounded-lg bg-slate-800 p-3"
       href={`/blog/${article.id}`}
+      className="flex h-64 w-full flex-col justify-between rounded-lg bg-slate-800 p-3"
     >
       <div className="flex flex-col gap-2">
         <HTag level={2}>{article.title}</HTag>
-        <p className="">
-          <time>{parseFixedDate(article.publishDate)}</time>
-        </p>
+        <time>{parseFixedDate(article.publishDate)}</time>
       </div>
       <div className="flex flex-wrap gap-2">
         {article.tags.map((tag) => {
-          return (
-            <small
-              className="rounded-3xl border border-white px-2"
-              key={tag.id}
-            >
-              {tag.name}
-            </small>
-          );
+          return <Tag key={tag.id} name={tag.name} />;
         })}
       </div>
     </Link>

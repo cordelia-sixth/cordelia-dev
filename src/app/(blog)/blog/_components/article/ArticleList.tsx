@@ -19,7 +19,7 @@ export const ArticleList = async ({ query = "" }: Props) => {
     return <HTag level={1}>記事がありません。</HTag>;
 
   return (
-    <div className="flex flex-col gap-6 min-[426px]:grid min-[426px]:grid-cols-2">
+    <div className="flex flex-col gap-3 min-[426px]:grid min-[426px]:grid-cols-2">
       {articleList.map((article) => {
         return <ArticleListItem key={article.id} article={article} />;
       })}

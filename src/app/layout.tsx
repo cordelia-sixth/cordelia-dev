@@ -4,6 +4,7 @@ import { Header } from "./_layout/header";
 import { Footer } from "./_layout/footer";
 import { Main } from "./_layout/main";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/constants/site";
+import { Container } from "./_layout/Container";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -32,10 +33,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className="mx-auto flex min-h-screen w-full flex-col bg-slate-900 p-4 text-sm tracking-wider text-white/[.8] sm:max-w-[732px] sm:text-lg">
-        <Header></Header>
-        <Main>{children}</Main>
-        <Footer></Footer>
+      <body className="bg-slate-900">
+        <Container>
+          <Header />
+          <Main>{children}</Main>
+          <Footer />
+        </Container>
       </body>
     </html>
   );

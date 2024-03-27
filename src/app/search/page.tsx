@@ -6,7 +6,7 @@ type Props = {
   };
 };
 
-// export const revalidate = 60;
+export const revalidate = 60;
 
 /**
  * 記事検索結果を表示するページ
