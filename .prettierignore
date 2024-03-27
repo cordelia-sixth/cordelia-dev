@@ -1,13 +1,9 @@
 node_modules/
 *.md
 .next/
-.nuxt/
-.astro/
 build/
 dist/
 out/
 public/
 package-lock.json
-yarn.lock
-pnpm-lock.yaml
 next.config.js

@@ -1,4 +1,3 @@
-import NotFound from "@/app/not-found";
 import { getBlogDraft } from "@/lib/microcms";
 import { notFound, redirect } from "next/navigation";
 import { PostBody } from "../_components/PostBody";
@@ -8,13 +7,6 @@ type Props = {
   params: { postId: string };
   searchParams: { draftKey: string | string[] };
 };
-
-// export const generateMetadata = async ({
-//   params: { postId },
-//   searchParams: { draftKey },
-// }: Props) => {
-//   return await generateArticleMetadata(postId, draftKey);
-// };
 
 /**
  * プレビューページ
