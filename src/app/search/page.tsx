@@ -1,4 +1,4 @@
-import { ArticleList } from "../blog/_components/article/ArticleList";
+import { ArticleList } from "../(blog)/blog/_components/article/ArticleList";
 
 type Props = {
   searchParams: {
