@@ -30,10 +30,9 @@ type Props = {
 };
 
 /**
- *
+ * ページネーション
  */
-export default async function Page({ params }: Props) {
-  // 現在のページを取得
+const Page = async ({ params }: Props) => {
   const current = Number(params.current);
 
   // 記事を取得
@@ -48,4 +47,6 @@ export default async function Page({ params }: Props) {
       <PageNation totalCount={data.totalCount} current={current} />
     </>
   );
-}
+};
+
+export default Page;

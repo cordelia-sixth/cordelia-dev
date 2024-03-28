@@ -31,7 +31,7 @@ export const PageNation = ({
   );
 
   return (
-    <ul>
+    <ul className="flex items-center justify-center gap-5 pt-3">
       {pages.map((p) => (
         <li key={p}>
           {/* デフォルトで1ページ目を表示する */}
@@ -43,12 +43,14 @@ export const PageNation = ({
               // TODO: 記事検索にもページネーションを付ける
               // href={`/${basePath}/page/${p}` + (q ? `?q=${q}` : "")}
               href={`/${basePath}/page/${p}`}
-              className="bg-red-200"
+              className=""
             >
               {p}
             </Link>
           ) : (
-            <span>{p}</span>
+            <span className="rounded-lg bg-slate-300 px-2 py-1 text-black">
+              {p}
+            </span>
           )}
         </li>
       ))}
