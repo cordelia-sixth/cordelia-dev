@@ -1,5 +1,5 @@
 import { TwoColumnContainer } from "../_layout/TwoColumnContainer";
-import { WorkCard } from "./_components/WorkCard";
+import { WorkListItem } from "./_components/WorkListItem";
 
 /**
  * worksページを返すコンポーネント
@@ -7,7 +7,7 @@ import { WorkCard } from "./_components/WorkCard";
 const Page = () => {
   return (
     <TwoColumnContainer>
-      <WorkCard
+      <WorkListItem
         name="cordelia.dev"
         description="このサイトです。"
         url="cordeliadev"
