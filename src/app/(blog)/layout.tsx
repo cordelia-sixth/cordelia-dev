@@ -1,5 +1,6 @@
 import { SearchField } from "@/components/SearchField";
 import React, { Suspense } from "react";
+import { TwoColumnContainer } from "../_layout/TwoColumnContainer";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -7,7 +8,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <Suspense>
         <SearchField />
       </Suspense>
-      {children}
+      <TwoColumnContainer>{children}</TwoColumnContainer>
     </>
   );
 };
