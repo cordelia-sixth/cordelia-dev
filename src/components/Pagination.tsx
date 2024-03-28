@@ -40,7 +40,9 @@ export const PageNation = ({
             // ここでは blog/page/1 とか search/page/1 とかになる
             //
             <Link
-              href={`/${basePath}/page/${p}` + (q ? `?q=${q}` : "")}
+              // TODO: 記事検索にもページネーションを付ける
+              // href={`/${basePath}/page/${p}` + (q ? `?q=${q}` : "")}
+              href={`/${basePath}/page/${p}`}
               className="bg-red-200"
             >
               {p}
