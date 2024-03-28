@@ -5,6 +5,7 @@ import "highlight.js/styles/github-dark.css";
 
 export const revalidate = 60;
 
+//
 export async function generateStaticParams() {
   const { contents: articleList } = await getArticleList();
   const paths = articleList.map((article) => {
@@ -24,7 +25,7 @@ type Props = {
 };
 
 /**
- * 記事ページ
+ * 記事詳細ページ
  */
 export default async function Page({ params }: Props) {
   const post = await getDetail(params.postId);
