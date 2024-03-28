@@ -1,20 +1,13 @@
-import NotFound from "@/app/not-found";
 import { getBlogDraft } from "@/lib/microcms";
 import { notFound, redirect } from "next/navigation";
-import { PostBody } from "../_components/PostBody";
+
 import Link from "next/link";
+import { ArticleBody } from "../_components/ArticleBody";
 
 type Props = {
   params: { postId: string };
   searchParams: { draftKey: string | string[] };
 };
-
-// export const generateMetadata = async ({
-//   params: { postId },
-//   searchParams: { draftKey },
-// }: Props) => {
-//   return await generateArticleMetadata(postId, draftKey);
-// };
 
 /**
  * プレビューページ
@@ -34,7 +27,7 @@ const Page = async ({
 
   return (
     <main>
-      <PostBody post={post} body />
+      <ArticleBody post={post} body />
       {draftKey && (
         <Link href={`/blog`} className="border border-white p-2">
           プレビュー終了

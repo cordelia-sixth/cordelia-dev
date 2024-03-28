@@ -8,7 +8,8 @@ import {
 import { Metadata } from "next";
 import { string } from "prop-types";
 
-export type Blog = {
+/** 記事の型定義 */
+export type Article = {
   /** 記事ID */
   id: string;
   /** 記事タイトル */
@@ -51,10 +52,10 @@ export const client = createClient({
  * ブログ一覧を取得
  * @param queries 検索用クエリ
  */
-export const getBlog = async (
+export const getArticleList = async (
   queries?: MicroCMSQueries,
-): Promise<MicroCMSListResponse<Blog>> => {
-  return await client.getList<Blog>({
+): Promise<MicroCMSListResponse<Article>> => {
+  return await client.getList<Article>({
     endpoint,
     queries,
   });
@@ -67,7 +68,7 @@ export const getDetail = async (
   contentId: string,
   queries?: MicroCMSQueries,
 ) => {
-  return await client.getListDetail<Blog>({
+  return await client.getListDetail<Article>({
     endpoint: "blogs",
     contentId,
     queries,
@@ -79,7 +80,7 @@ export const getBlogDraft = async (
   contentId: string,
   queries: MicroCMSQueries & { draftKey: string },
 ) => {
-  return await client.get<Blog>({
+  return await client.get<Article>({
     endpoint,
     contentId,
     queries,
@@ -99,7 +100,7 @@ export const generateArticleMetadata = async (
   articleId: string,
   draftKey?: string | string[],
 ): Promise<Metadata | void> => {
-  let blog: Blog | null = null;
+  let blog: Article | null = null;
 
   // draftKeyが存在すればtrue
   const isDraft = typeof draftKey === "string";
