@@ -1,17 +1,17 @@
+import { getWorkList } from "@/lib/microcms";
 import { TwoColumnContainer } from "../_layout/TwoColumnContainer";
 import { WorkListItem } from "./_components/WorkListItem";
+import { WorkList } from "./_components/WorkList";
 
 /**
  * worksページを返すコンポーネント
  */
-const Page = () => {
+const Page = async () => {
+  const { contents } = await getWorkList();
+
   return (
     <TwoColumnContainer>
-      <WorkListItem
-        name="cordelia.dev"
-        description="このサイトです。"
-        url="cordeliadev"
-      />
+      <WorkList contents={contents} />
     </TwoColumnContainer>
   );
 };

@@ -5,7 +5,6 @@ import "highlight.js/styles/github-dark.css";
 
 export const revalidate = 60;
 
-//
 export async function generateStaticParams() {
   const { contents: articleList } = await getArticleList();
   const paths = articleList.map((article) => {
