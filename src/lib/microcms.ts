@@ -46,7 +46,12 @@ export type Work = {
   /** 公開しているURL */
   url: string;
   /** 使用技術 */
-  tools: [];
+  tools: [
+    {
+      id: string;
+      name: string;
+    },
+  ];
 } & MicroCMSDate;
 
 const endpoint = "blogs";
@@ -161,7 +166,7 @@ export const getWorkList = async (
 export const getWorkDetail = async (
   contentId: string,
   queries?: MicroCMSQueries,
-) => {
+): Promise<Work> => {
   return client
     .getListDetail({
       endpoint: "works",
