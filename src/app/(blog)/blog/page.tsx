@@ -2,6 +2,7 @@ import { PageNation } from "@/components/Pagination";
 import { ArticleList } from "./_components/article/ArticleList";
 import { getArticleList } from "@/lib/microcms";
 import { LIMIT } from "@/constants/microcms";
+import { TwoColumnContainer } from "@/app/_layout/TwoColumnContainer";
 
 /**
  * ブログトップページ
@@ -14,7 +15,9 @@ const Page = async () => {
   });
   return (
     <>
-      <ArticleList articleList={data.contents} />
+      <TwoColumnContainer>
+        <ArticleList articleList={data.contents} />
+      </TwoColumnContainer>
       <PageNation totalCount={data.totalCount} />
     </>
   );

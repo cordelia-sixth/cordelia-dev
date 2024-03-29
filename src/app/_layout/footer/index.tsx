@@ -1,7 +1,3 @@
 export const Footer = () => {
-  return (
-    <footer className="flex items-start justify-between">
-      &copy; 2024 cordelia.dev
-    </footer>
-  );
+  return <footer className="text-center">&copy; 2024 cordelia.dev</footer>;
 };

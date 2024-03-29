@@ -26,11 +26,10 @@ type Props = {
  * works詳細ページ
  */
 const Page = async ({ params }: Props) => {
-  const work: Work = await getWorkDetail(params.slug);
+  const work = await getWorkDetail(params.slug);
   if (!work) {
     notFound();
   }
-  console.log(work.tools);
 
   return (
     <div className="flex flex-col items-center gap-8">
