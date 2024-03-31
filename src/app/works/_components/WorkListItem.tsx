@@ -3,25 +3,24 @@ import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 type Props = {
-  name: string;
+  id: string;
+  title: string;
+  slug: string;
   description: string;
-  url: string;
 };
 
 /**
  * workページのカードUI
  */
-export const WorkListItem = ({ name, description, url }: Props) => {
+export const WorkListItem = ({ id, title, slug, description }: Props) => {
   return (
     <Link
-      href={`/works/${url}`}
-      className="flex flex-col gap-3 rounded-lg bg-slate-800 p-4"
+      href={`/works/${id}`}
+      className="flex flex-col gap-3 rounded-lg bg-slate-600 p-3"
     >
-      <HTag level={2} className="border-b py-8 text-center">
-        {name}
-      </HTag>
-      <div className="flex flex-col gap-10">
-        <p>{description}</p>
+      <HTag level={2}>{title}</HTag>
+      <div className="flex flex-col">
+        <p className="">{description}</p>
         <div className="flex items-center gap-2 self-end">
           <small>Read more</small>
           <FaArrowRightLong size={15} className="animate-arrowAnimation" />

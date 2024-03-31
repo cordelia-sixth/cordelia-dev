@@ -6,7 +6,7 @@ import {
   createClient,
 } from "microcms-js-sdk";
 import { Metadata } from "next";
-import { string } from "prop-types";
+import { notFound } from "next/navigation";
 
 /** 記事の型定義 */
 export type Article = {
@@ -31,6 +31,27 @@ export type Article = {
   ];
   /** 記事アイキャッチ画像 */
   eyecatch?: MicroCMSImage;
+} & MicroCMSDate;
+
+/** 制作物（work）の型定義 */
+export type Work = {
+  /** ID */
+  id: string;
+  /** 制作物の名前 */
+  title: string;
+  /** slug */
+  slug: string;
+  /** 説明文 */
+  description: string;
+  /** 公開しているURL */
+  url: string;
+  /** 使用技術 */
+  tools: [
+    {
+      id: string;
+      name: string;
+    },
+  ];
 } & MicroCMSDate;
 
 const endpoint = "blogs";
@@ -118,4 +139,41 @@ export const generateArticleMetadata = async (
     const { title } = blog;
     return { title: isDraft ? `[プレビュー] ${title}` : title };
   }
+};
+
+/**
+ * 全てのworkを取得
+ * @param queries 検索クエリ
+ */
+export const getWorkList = async (
+  queries?: MicroCMSQueries,
+): Promise<MicroCMSListResponse<Work>> => {
+  return await client
+    .getList<Work>({
+      endpoint: "works",
+      queries,
+    })
+    .catch((e) => {
+      throw new Error(`getWorkList()を実行中にエラーが発生しました：${e}`);
+    });
+};
+
+/**
+ * 個別workの詳細を取得
+ * @param contentId 制作物ID
+ * @param queries 検索クエリ
+ */
+export const getWorkDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries,
+): Promise<Work> => {
+  return client
+    .getListDetail({
+      endpoint: "works",
+      contentId,
+      queries,
+    })
+    .catch((e) =>
+      console.log(`getListDetail()を実行中にエラーが発生しました：${e}`),
+    );
 };

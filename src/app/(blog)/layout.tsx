@@ -8,7 +8,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <Suspense>
         <SearchField />
       </Suspense>
-      <TwoColumnContainer>{children}</TwoColumnContainer>
+      {children}
     </>
   );
 };

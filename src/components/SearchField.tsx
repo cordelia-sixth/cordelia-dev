@@ -20,7 +20,7 @@ export const SearchField = () => {
     useCallback(
       (e) => {
         // 押されたのがエンターである、日本語変換が終わっている時
-        if (e.code === "Enter" && !composition) {
+        if (e.key === "Enter" && !composition) {
           // ページ遷移
           location.href = `/search?q=${inputRef.current?.value}`;
         }
@@ -43,6 +43,7 @@ export const SearchField = () => {
         onCompositionStart={startComposition}
         onCompositionEnd={endComposition}
         defaultValue={defaultQuery}
+        enterKeyHint="search"
         className="w-[80%] rounded-full p-1 pl-4 text-black outline-none"
       />
     </div>
