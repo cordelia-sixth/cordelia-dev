@@ -1,6 +1,7 @@
 import { HTag } from "@/components/ui/HTag";
 import { Tag } from "@/components/ui/Tag";
 import { Work, getWorkDetail, getWorkList } from "@/lib/microcms";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaExternalLinkAlt } from "react-icons/fa";
@@ -31,10 +32,21 @@ const Page = async ({ params }: Props) => {
     notFound();
   }
 
+  console.log("🍎", work);
+
   return (
     <div className="flex flex-col items-center gap-8">
       <HTag level={1}>{work.title}</HTag>
-      <p>ここに画像</p>
+      {/* <Image
+        src={work.thumbnail.url}
+        width={work.thumbnail.width}
+        height={work.thumbnail.height}
+        style={{
+          width: "100%",
+          objectFit: "cover",
+        }}
+        alt="制作物の画像"
+      /> */}
       <p className="self-start">{work.description}</p>
       <div className="flex flex-col gap-2 self-start">
         <HTag level={3}>使用技術</HTag>
@@ -45,7 +57,9 @@ const Page = async ({ params }: Props) => {
         </div>
       </div>
       <Link
-        href="#"
+        href="https://paylog.vercel.app"
+        target="_blank"
+        rel="noopener noreferrer"
         className="flex items-baseline gap-2 rounded-lg border px-8 py-2 transition active:scale-110"
       >
         使ってみる

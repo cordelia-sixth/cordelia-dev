@@ -41,10 +41,14 @@ export type Work = {
   title: string;
   /** slug */
   slug: string;
+  /** サムネイル */
+  thumbnail: {
+    url: string;
+    height: number;
+    width: number;
+  };
   /** 説明文 */
   description: string;
-  /** 公開しているURL */
-  url: string;
   /** 使用技術 */
   tools: [
     {

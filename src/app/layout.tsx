@@ -8,21 +8,28 @@ import { Container } from "./_layout/Container";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
   title: { template: `%s | ${SITE_NAME}`, default: SITE_NAME },
   description: SITE_DESCRIPTION,
-  alternates: {
-    canonical: SITE_URL,
-  },
   openGraph: {
-    type: "website",
-    locale: "ja_JP",
-    url: SITE_URL,
-    siteName: SITE_NAME,
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    images: [
+      {
+        url: "/og.png",
+      },
+    ],
+    locale: "ja_JP",
+    type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
   },
 };
 
