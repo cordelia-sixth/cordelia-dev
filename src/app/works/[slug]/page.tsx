@@ -32,21 +32,21 @@ const Page = async ({ params }: Props) => {
     notFound();
   }
 
-  console.log("🍎", work);
-
   return (
     <div className="flex flex-col items-center gap-8">
       <HTag level={1}>{work.title}</HTag>
-      {/* <Image
-        src={work.thumbnail.url}
-        width={work.thumbnail.width}
-        height={work.thumbnail.height}
-        style={{
-          width: "100%",
-          objectFit: "cover",
-        }}
-        alt="制作物の画像"
-      /> */}
+      <div className="h-[40vh]">
+        <Image
+          src={work.thumbnail.url}
+          width={1000}
+          height={500}
+          style={{
+            height: "100%",
+            objectFit: "cover",
+          }}
+          alt="制作物の画像"
+        />
+      </div>
       <p className="self-start">{work.description}</p>
       <div className="flex flex-col gap-2 self-start">
         <HTag level={3}>使用技術</HTag>
@@ -57,12 +57,12 @@ const Page = async ({ params }: Props) => {
         </div>
       </div>
       <Link
-        href="https://paylog.vercel.app"
+        href={work.domain}
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-baseline gap-2 rounded-lg border px-8 py-2 transition active:scale-110"
       >
-        使ってみる
+        サイトを見る
         <FaExternalLinkAlt size={15} />
       </Link>
     </div>
