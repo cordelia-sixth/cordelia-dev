@@ -28,7 +28,7 @@ export const Avatar = ({
 }: Props) => {
   return (
     <Image
-      src={`/${id}.png`}
+      src={`/og/${id}.png`}
       alt={alt}
       width={width}
       height={height}

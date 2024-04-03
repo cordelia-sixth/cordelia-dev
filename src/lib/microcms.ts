@@ -49,6 +49,8 @@ export type Work = {
   };
   /** 説明文 */
   description: string;
+  /** ドメイン */
+  domain: string;
   /** 使用技術 */
   tools: [
     {
@@ -149,18 +151,18 @@ export const generateArticleMetadata = async (
  * 全てのworkを取得
  * @param queries 検索クエリ
  */
-export const getWorkList = async (
-  queries?: MicroCMSQueries,
-): Promise<MicroCMSListResponse<Work>> => {
-  return await client
-    .getList<Work>({
-      endpoint: "works",
-      queries,
-    })
-    .catch((e) => {
-      throw new Error(`getWorkList()を実行中にエラーが発生しました：${e}`);
-    });
-};
+export const getWorkList = async () =>
+  // queries?: MicroCMSQueries,
+  {
+    return await client
+      .getList<Work>({
+        endpoint: "works",
+        // queries: { fields: "domain" },
+      })
+      .catch((e) => {
+        throw new Error(`getWorkList()を実行中にエラーが発生しました：${e}`);
+      });
+  };
 
 /**
  * 個別workの詳細を取得

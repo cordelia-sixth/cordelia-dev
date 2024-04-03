@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: "/og.png",
+        url: "/og/og.png",
       },
     ],
     locale: "ja_JP",

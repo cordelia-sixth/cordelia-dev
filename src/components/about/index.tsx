@@ -12,7 +12,7 @@ export const About = () => {
     <div className="flex flex-col gap-12 pt-10">
       <div className="flex flex-col gap-6">
         <Avatar
-          id="myicon"
+          id="og"
           alt="サイト制作者のアイコン"
           width={140}
           height={140}
