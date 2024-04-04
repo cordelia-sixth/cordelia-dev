@@ -1,5 +1,6 @@
 import { addMinutes } from "date-fns";
 
+// いらないかも？
 const timeOffsets = {
   "Asia/Tokyo": 9 * 60,
   // 他のタイムゾーンにも対応可能

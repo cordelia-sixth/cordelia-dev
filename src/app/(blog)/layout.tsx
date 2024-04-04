@@ -1,7 +1,9 @@
 import { SearchField } from "@/components/SearchField";
 import React, { Suspense } from "react";
-import { TwoColumnContainer } from "../_layout/TwoColumnContainer";
 
+/**
+ * /blog以下のページのレイアウトコンテナ
+ */
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>

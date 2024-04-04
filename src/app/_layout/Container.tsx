@@ -1,5 +1,5 @@
 /**
- * Header, Main, Footerをラップしてスタイルを調整するコンポーネント
+ * 全体をラップしてスタイルを調整するコンポーネント
  */
 export const Container = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -1,6 +1,8 @@
-import { SearchField } from "@/components/SearchField";
 import Link from "next/link";
 
+/**
+ * ヘッダーコンポーネント
+ */
 export const Header = () => {
   return (
     <header className="flex items-end justify-between">

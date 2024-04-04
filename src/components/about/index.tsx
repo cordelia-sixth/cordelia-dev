@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Avatar } from "../avatar";
 import { HTag } from "../ui/HTag";
-import { Tag } from "../ui/Tag";
+// import { Tag } from "../ui/Tag";
 
 /**
  * トップページのAbout

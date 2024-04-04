@@ -6,7 +6,11 @@ import {
   createClient,
 } from "microcms-js-sdk";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+// import { notFound } from "next/navigation";
+
+/**
+ * TODO: フェッチ関数を作り直す
+ */
 
 /** 記事の型定義 */
 export type Article = {
